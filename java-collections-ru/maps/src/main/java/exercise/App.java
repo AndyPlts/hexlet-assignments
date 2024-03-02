@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 // BEGIN
-public class App{
-    public static Map <String, Integer> getWordCount(String sentence) {
+public class App {
+    public static Map<String, Integer> getWordCount(String sentence) {
         var resultMap = new HashMap<String, Integer>();
         if (sentence.isEmpty()) {
             return resultMap;
@@ -27,7 +27,7 @@ public class App{
         }
         var entries = wordCount.entrySet();
         StringBuilder resultStringBuilder = new StringBuilder("{");
-        for(var entry : entries) {
+        for (var entry : entries) {
             resultStringBuilder.append("\n  ").append(entry.getKey()).append(": ").append(entry.getValue());
         }
         var resultString = resultStringBuilder.toString();

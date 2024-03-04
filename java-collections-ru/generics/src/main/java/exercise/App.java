@@ -7,21 +7,20 @@ import java.util.Map.Entry;
 
 // BEGIN
 public class App {
-    public static List<Map<String, String>> findWhere(List<Map<String, String>> books,
-                                                      Map<String, String> checkedBook) {
-        var resultList = new ArrayList<Map<String, String>>();
+    public static <K, V> List<Map<K, V>> findWhere(List<Map<K, V>> books, Map<K, V> checkedBook) {
+        var resultList = new ArrayList<Map<K, V>>();
         for (var book : books) {
-            if (checkedBook.containsKey("title") && checkedBook.containsKey("author")
-                    && checkedBook.containsKey("year")) {
-                if (checkedBook.get("author").equals(book.get("author")) &&
-                        checkedBook.get("title").equals(book.get("title")) &&
-                        checkedBook.get("year").equals(book.get("year"))) {
+            int count = 0;
+            for (Map.Entry<K, V> selectedParameter : book.entrySet()) {
+                if (checkedBook.containsValue(selectedParameter.getValue())) {
+                    count++;
+                }
+                if (count == checkedBook.size()) {
                     resultList.add(book);
                 }
-            } else if {
-
             }
         }
+        return resultList;
     }
 }
 //END
